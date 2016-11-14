@@ -220,7 +220,7 @@ void MyWindow::render()
 
         mProgram->setUniformValue("ViewportMatrix", ViewPortMatrix);
 
-        glDrawElements(GL_TRIANGLES, 3 * mOgre->getnFaces(), GL_UNSIGNED_INT, ((GLubyte *)NULL + (0)));
+        glDrawElements(GL_TRIANGLES_ADJACENCY, 6 * mOgre->getnFaces(), GL_UNSIGNED_INT, ((GLubyte *)NULL + (0)));
 
         glDisableVertexAttribArray(0);
         glDisableVertexAttribArray(1);

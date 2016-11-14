@@ -143,7 +143,7 @@ void VBOMeshAdj::loadOBJ( const char * fileName, bool reCenterMesh ) {
   vector <QVector2D> tc;         // Holds tex coords from OBJ file
   vector <unsigned int> faces, faceTC;
 
-  int nFaces = 0;
+  //int nFaces = 0;
 
   ifstream objStream( fileName, std::ios::in );
 

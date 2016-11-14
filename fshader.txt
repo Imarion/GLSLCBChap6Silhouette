@@ -65,7 +65,11 @@ void main()
 
     if( GIsEdge == 1 ) {
         FragColor = LineColor;
+        //FragColor = vec4(1.0f, 0.0f, 0.0f, 0.0f);
     } else {
-        FragColor =  vec4( toonShade(), 1.0 );
+        FragColor =  vec4( phongModel(), 1.0 );
+        //FragColor = vec4(0.0f, 1.0f, 0.0f, 0.0f);
     }
+
+    //FragColor = vec4(0.0f, 1.0f, 0.0f, 0.0f);
 }

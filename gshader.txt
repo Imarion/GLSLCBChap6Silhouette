@@ -58,6 +58,9 @@ void main()
         if( ! isFrontFacing(p4,p5,p0) ) emitEdgeQuad(p4,p0);
     }
 
+    // Output the original triangle
+    GIsEdge = 0; // This triangle is not part of an edge.
+
     GNormal       = VNormal[0];
     GPosition     = VPosition[0];
     GLightDir     = LightDir[0];
