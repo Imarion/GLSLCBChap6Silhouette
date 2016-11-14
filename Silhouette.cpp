@@ -80,9 +80,6 @@ void MyWindow::initialize()
     initShaders();
     initMatrices();
 
-    PrepareTexture(GL_TEXTURE0, GL_TEXTURE_2D, "../Media/ogre_diffuse.png", true);
-    PrepareTexture(GL_TEXTURE1, GL_TEXTURE_2D, "../Media/ogre_normalmap.png", true);
-
     glFrontFace(GL_CCW);
     glEnable(GL_DEPTH_TEST);
 }
@@ -199,18 +196,17 @@ void MyWindow::render()
 
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
-    glEnableVertexAttribArray(2);
-    glEnableVertexAttribArray(3);
 
     mProgram->bind();
     {
-        QVector4D worldLight = QVector4D(10.0f * cos(angle),1.0f,10.0f * sin(angle),1.0f);
-        mProgram->setUniformValue("Light.Position", ViewMatrix * worldLight );
-        mProgram->setUniformValue("Light.Intensity", 0.9f, 0.9f, 0.9f);
+        //QVector4D worldLight = QVector4D(10.0f * cos(angle),1.0f,10.0f * sin(angle),1.0f);
+        //mProgram->setUniformValue("Light.Position", ViewMatrix * worldLight );
+        mProgram->setUniformValue("Light.Position", QVector4D (0.0f, 0.0f, 0.0f, 1.0f) );
+        mProgram->setUniformValue("Light.Intensity", 1.0f, 1.0f, 1.0f);
 
-        mProgram->setUniformValue("Material.Kd", 0.9f, 0.9f, 0.9f);
+        mProgram->setUniformValue("Material.Kd", 0.7f, 0.5f, 0.2f);
         mProgram->setUniformValue("Material.Ks", 0.2f, 0.2f, 0.2f);
-        mProgram->setUniformValue("Material.Ka", 0.1f, 0.1f, 0.1f);
+        mProgram->setUniformValue("Material.Ka", 0.2f, 0.2f, 0.2f);
         mProgram->setUniformValue("Material.Shininess", 1.0f);
 
         QMatrix4x4 mv1 = ViewMatrix * ModelMatrix;
@@ -224,8 +220,6 @@ void MyWindow::render()
 
         glDisableVertexAttribArray(0);
         glDisableVertexAttribArray(1);
-        glDisableVertexAttribArray(2);
-        glDisableVertexAttribArray(3);
     }
     mProgram->release();
 

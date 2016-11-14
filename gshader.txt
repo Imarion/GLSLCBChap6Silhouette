@@ -8,16 +8,8 @@ out vec3 GPosition;
 
 flat out int GIsEdge;
 
-out vec3 GLightDir;
-out vec3 GViewDir;
-out vec2 GTexCoord;
-
 in vec3 VNormal[];
 in vec3 VPosition[];
-
-in vec3 LightDir[];
-in vec3 ViewDir[];
-in vec2 TexCoord[];
 
 bool isFrontFacing( vec3 a, vec3 b, vec3 c )
 {
@@ -63,25 +55,16 @@ void main()
 
     GNormal       = VNormal[0];
     GPosition     = VPosition[0];
-    GLightDir     = LightDir[0];
-    GViewDir      = ViewDir[0];
-    GTexCoord     = TexCoord[0];
     gl_Position   = gl_in[0].gl_Position;
     EmitVertex();
 
     GNormal       = VNormal[2];
     GPosition     = VPosition[2];
-    GLightDir     = LightDir[2];
-    GViewDir      = ViewDir[2];
-    GTexCoord     = TexCoord[2];
     gl_Position   = gl_in[2].gl_Position;
     EmitVertex();
 
     GNormal       = VNormal[4];
     GPosition     = VPosition[4];
-    GLightDir     = LightDir[4];
-    GViewDir      = ViewDir[4];
-    GTexCoord     = TexCoord[4];
     gl_Position   = gl_in[4].gl_Position;
     EmitVertex();
 
